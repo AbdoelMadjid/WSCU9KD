@@ -30,9 +30,7 @@
 				traditional hre="" links. See documentation for details.
 				-->
 
-				<?php
-//					$_ui->create_nav($page_nav)->print_html();
-				?>
+				{{ $_ui->create_nav($page_nav)->print_html() }}
 
 			</nav>
 			<span class="minifyme" data-action="minifyMenu"> <i class="fa fa-arrow-circle-left hit"></i> </span>

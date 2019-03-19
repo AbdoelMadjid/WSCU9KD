@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use \SmartUI;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -12,6 +13,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     //CONFIGURATION for SmartAdmin UI
+    protected $_ui;
 
     //ribbon breadcrumbs config
     //array("Display Name" => "URL");
@@ -34,9 +36,9 @@ class Controller extends BaseController
     */
     public $page_nav = array(
         "blank" => array(
-            "title" => "Blank",
+            "title" => "dashboard",
             "icon" => "fa-home",
-            "url" => "ajax/dashboard.php"
+            "url" => "dashboard",
         )
     );
 
@@ -49,6 +51,9 @@ class Controller extends BaseController
 
     public function __construct ()
     {
+
+        $this->_ui = new SmartUI\UI();
+        View()->share('_ui', $this->_ui);
         View()->share('breadcrumbs', $this->breadcrumbs);
         View()->share('page_nav', $this->page_nav);
         View()->share('page_title', $this->page_title);

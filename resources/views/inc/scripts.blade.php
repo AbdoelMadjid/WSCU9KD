@@ -59,6 +59,11 @@
 		<![endif]-->
 
 		<!-- MAIN APP JS FILE -->
-		<script src="{{ asset('/js/app.js') }}"></script>
+		<script src="{{ asset('/js/app.min.js') }}"></script>
+
+		<script type="text/javascript">
+            // DO NOT REMOVE : GLOBAL FUNCTIONS!
+            pageSetUp();
+		</script>
 
 
