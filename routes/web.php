@@ -31,4 +31,11 @@ Route::get('/web/invoice', 'IndexController@invoice');
 
 Route::get('/web/profile', 'IndexController@profile');
 
+Route::group( [
+    "namespace" => "Tables"
+], function () {
+    Route::get( '/web/tables/data-tables', 'DataTables@index' );
+    Route::get( '/web/tables/jquery-grid', 'JqueryGrid@index' );
+    Route::get( '/web/tables/normal-tables', 'NormalTables@index' );
+} );
 

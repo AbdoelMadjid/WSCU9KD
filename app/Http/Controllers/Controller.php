@@ -20,27 +20,7 @@ class Controller extends BaseController
     public $breadcrumbs = array(
         "Home" => ""
     );
-
-    /*navigation array config
-
-    ex:
-    "dashboard" => array(
-        "title" => "Display Title",
-        "url" => "http://yoururl.com",
-        "url_target" => "_self",
-        "icon" => "fa-home",
-        "label_htm" => "<span>Add your custom label/badge html here</span>",
-        "sub" => array() //contains array of sub items with the same format as the parent
-    )
-
-    */
-    public $page_nav = array(
-        "blank" => array(
-            "title" => "dashboard",
-            "icon" => "fa-home",
-            "url" => "dashboard",
-        )
-    );
+    public $page_nav = [];
 
     //configuration variables
     public $page_title = "";
@@ -51,7 +31,7 @@ class Controller extends BaseController
 
     public function __construct ()
     {
-
+        $this->page_nav = config('menu');
         $this->_ui = new SmartUI\UI();
         View()->share('_ui', $this->_ui);
         View()->share('breadcrumbs', $this->breadcrumbs);
